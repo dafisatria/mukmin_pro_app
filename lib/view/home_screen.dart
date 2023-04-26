@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -16,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    Provider.of<CityProvider>(context, listen: false).get();
+    Provider.of<CityProvider>(context, listen: false).getCity();
   }
 
   @override
@@ -27,23 +29,35 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text('Mukmin Pro Demo'),
       ),
       body: Center(
-        child: DropdownButton<String>(
-          value: provider.dropDownValue,
-          items: provider.cities.map(
-            (data) {
-              return DropdownMenuItem(
-                value: data.lokasi.toString(),
-                child: Text(data.lokasi.toString()),
-              );
-            },
-          ).toList(),
-          onChanged: (value) {
-            setState(
-              () {
-                provider.dropDownValue = value!;
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            DropdownButton<String>(
+              value: provider.valueCity.id,
+              items: provider.cities.map(
+                (item) {
+                  return DropdownMenuItem(
+                    value: item.id.toString(),
+                    child: Text(item.lokasi.toString()),
+                  );
+                },
+              ).toList(),
+              onChanged: (value) {
+                setState(
+                  () {
+                    provider.valueCity.id = value;
+                    debugPrint(provider.valueCity.id);
+                  },
+                );
               },
-            );
-          },
+            ),
+            ElevatedButton(
+              onPressed: () {
+                provider.getPrayTimes(provider.valueCity.id);
+              },
+              child: const Text('GET STARTED'),
+            ),
+          ],
         ),
       ),
     );
