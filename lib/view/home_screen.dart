@@ -57,6 +57,51 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: const Text('GET STARTED'),
             ),
+            (provider.prayTimes.data == null)
+                ? SizedBox()
+                : Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('subuh : '),
+                          Text(
+                              provider.prayTimes.data!.jadwal!.subuh.toString())
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('dzuhur : '),
+                          Text(provider.prayTimes.data!.jadwal!.dzuhur
+                              .toString())
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('ashar : '),
+                          Text(
+                              provider.prayTimes.data!.jadwal!.ashar.toString())
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('maghrib : '),
+                          Text(provider.prayTimes.data!.jadwal!.maghrib
+                              .toString())
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('isya : '),
+                          Text(provider.prayTimes.data!.jadwal!.isya.toString())
+                        ],
+                      ),
+                    ],
+                  ),
           ],
         ),
       ),
