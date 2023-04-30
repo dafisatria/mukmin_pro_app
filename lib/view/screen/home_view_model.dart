@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mukmin_pro_app/model/city_model.dart';
 import 'package:mukmin_pro_app/model/pray_times_model.dart';
 
-import '../model/api/services.dart';
+import '../../model/api/services.dart';
 
 class CityProvider with ChangeNotifier {
   List cities = <CityModel>[];

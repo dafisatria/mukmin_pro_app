@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mukmin_pro_app/view/home_screen.dart';
-import 'package:mukmin_pro_app/view/home_view_model.dart';
+import 'package:mukmin_pro_app/view/screen/home_screen.dart';
+import 'package:mukmin_pro_app/view/screen/home_view_model.dart';
 import 'package:provider/provider.dart';
 
 void main() {
