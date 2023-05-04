@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mukmin_pro_app/my_app.dart';
 import 'package:mukmin_pro_app/view/screen/home_view_model.dart';
 import 'package:mukmin_pro_app/view/screen/prayer_times_view_model.dart';
 import 'package:provider/provider.dart';
+import 'package:timer_builder/timer_builder.dart';
+
+import 'prayer_times_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,42 +16,42 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
-  void initState() {
-    super.initState();
-    Provider.of<HomeProvider>(context, listen: false).getCity();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final provider = Provider.of<HomeProvider>(context, listen: true);
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          DropdownButton<String>(
-            value: provider.valueCity.id,
-            items: provider.cities.map(
-              (item) {
-                return DropdownMenuItem(
-                  value: item.id.toString(),
-                  child: Text(item.lokasi.toString()),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TimerBuilder.periodic(
+              const Duration(seconds: 1),
+              builder: (context) {
+                String second = DateTime.now().second < 10
+                    ? "0${DateTime.now().second}"
+                    : DateTime.now().second.toString();
+                String minute = DateTime.now().minute < 10
+                    ? "0${DateTime.now().minute}"
+                    : DateTime.now().minute.toString();
+                String hour = DateTime.now().hour < 10
+                    ? "0${DateTime.now().hour}"
+                    : DateTime.now().hour.toString();
+                return SizedBox(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Today ",
+                      ),
+                      Text(
+                        "$hour:$minute:$second",
+                      ),
+                    ],
+                  ),
                 );
               },
-            ).toList(),
-            onChanged: (value) {
-              provider.setValueCityId(value!);
-              debugPrint(provider.valueCity.id);
-            },
-          ),
-          ElevatedButton(
-            onPressed: () {
-              context
-                  .read<PrayerTimesProvider>()
-                  .getPrayTimes(provider.valueCity.id);
-            },
-            child: const Text('GET STARTED'),
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }

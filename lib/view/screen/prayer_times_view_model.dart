@@ -8,9 +8,9 @@ class PrayerTimesProvider with ChangeNotifier {
   PrayTimesModel prayTimes = PrayTimesModel();
   MyService service = MyService();
 
-  Future getPrayTimes(value) async {
+  Future getPrayTimes(id, year, month, day) async {
     try {
-      prayTimes = await service.fetchPrayTimes(value);
+      prayTimes = await service.fetchPrayTimes(id, year, month, day);
     } catch (e) {
       if (e is DioError) {
         e.response!.statusCode;

@@ -16,10 +16,11 @@ class MyService {
     }
   }
 
-  Future<PrayTimesModel> fetchPrayTimes(String id) async {
+  Future<PrayTimesModel> fetchPrayTimes(
+      String id, String year, String month, String day) async {
     try {
-      final Response response = await dio
-          .get('https://api.myquran.com/v1/sholat/jadwal/$id/2023/04/26');
+      final Response response = await dio.get(
+          'https://api.myquran.com/v1/sholat/jadwal/$id/$year/$month/$day');
       debugPrint(response.data.toString());
       return PrayTimesModel.fromJson(response.data);
     } catch (e) {
