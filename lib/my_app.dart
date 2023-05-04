@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mukmin_pro_app/model/city_model.dart';
+import 'package:mukmin_pro_app/model/pray_times_model.dart';
 import 'package:mukmin_pro_app/view/screen/home_screen.dart';
 import 'package:mukmin_pro_app/view/screen/home_view_model.dart';
 import 'package:mukmin_pro_app/view/screen/prayer_times_view_model.dart';
@@ -14,55 +16,51 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var currentTab = [
+  List pages = [
     const HomeScreen(),
     const PrayTimesScreen(),
   ];
-  int selectedNavbar = 0;
+  int selectedIndex = 0;
   void changeSelectedNavBar(int index) {
     setState(() {
-      selectedNavbar = index;
+      selectedIndex = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (_) => HomeProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => PrayerTimesProvider(),
-        ),
-      ],
-      child: MaterialApp(
-        home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Mukmin Pro Demo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(context
+            .read<PrayerTimesProvider>()
+            .prayTimes
+            .data!
+            .lokasi
+            .toString()),
+        backgroundColor: const Color(0xff45871B),
+        centerTitle: true,
+      ),
+      body: pages.elementAt(selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-          body: currentTab[selectedNavbar],
-          bottomNavigationBar: BottomNavigationBar(
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.schedule),
-                label: 'Prayer Schedule',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
-                label: 'Settings',
-              ),
-            ],
-            currentIndex: selectedNavbar,
-            onTap: (index) {
-              changeSelectedNavBar(index);
-            },
+          BottomNavigationBarItem(
+            icon: Icon(Icons.schedule),
+            label: 'Prayer Schedule',
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
+        currentIndex: selectedIndex,
+        onTap: (index) {
+          changeSelectedNavBar(index);
+        },
+        selectedItemColor: Color(0xff45871B),
       ),
     );
   }

@@ -15,4 +15,7 @@ class CityModel {
     data['lokasi'] = lokasi;
     return data;
   }
+
+  @override
+  String toString() => lokasi!;
 }
