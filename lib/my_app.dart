@@ -31,12 +31,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(context
-            .read<PrayerTimesProvider>()
-            .prayTimes
-            .data!
-            .lokasi
-            .toString()),
+        title: Text('Mukmin Pro App Demo'),
         backgroundColor: const Color(0xff45871B),
         centerTitle: true,
       ),
