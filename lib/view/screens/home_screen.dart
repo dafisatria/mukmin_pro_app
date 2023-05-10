@@ -3,10 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import '../model/pray_times_model.dart';
-import 'card_home_widget.dart';
-import 'home_view_model.dart';
-import 'pray_times_month_view_model.dart';
+import '../../model/pray_times_model.dart';
+import '../home_view_model.dart';
+import '../pray_times_month_view_model.dart';
+import '../widget/card_home_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

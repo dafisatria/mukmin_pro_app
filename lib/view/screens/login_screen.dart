@@ -5,9 +5,9 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import '../model/city_model.dart';
-import 'home_view_model.dart';
-import 'login_view_model.dart';
+import '../../model/city_model.dart';
+import '../home_view_model.dart';
+import '../login_view_model.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

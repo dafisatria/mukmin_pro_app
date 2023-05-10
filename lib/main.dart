@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'view/home_screen.dart';
 import 'view/home_view_model.dart';
-import 'view/login_screen.dart';
 import 'view/login_view_model.dart';
-import 'view/pray_times_month_screen.dart';
 import 'view/pray_times_month_view_model.dart';
-import 'view/splash_screen.dart';
+import 'view/screens/home_screen.dart';
+import 'view/screens/login_screen.dart';
+import 'view/screens/pray_times_month_screen.dart';
+import 'view/screens/splash_screen.dart';
 
 void main() {
   runApp(const DummyApp());

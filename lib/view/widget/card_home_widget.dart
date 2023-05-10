@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import '../model/pray_times_model.dart';
-import 'home_view_model.dart';
+import '../../model/pray_times_model.dart';
+import '../home_view_model.dart';
 
 class CardHome extends StatefulWidget {
   const CardHome({

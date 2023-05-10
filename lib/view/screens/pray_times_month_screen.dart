@@ -4,9 +4,8 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import '../model/pray_times_model.dart';
-import '../model/pray_times_month_model.dart';
-import 'pray_times_month_view_model.dart';
+import '../../model/pray_times_month_model.dart';
+import '../pray_times_month_view_model.dart';
 
 class PrayTimesMonthScreen extends StatefulWidget {
   const PrayTimesMonthScreen({super.key});
