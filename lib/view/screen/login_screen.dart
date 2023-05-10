@@ -137,12 +137,7 @@ Padding mainData(LoginProvider provider, BuildContext context) {
               ),
               ElevatedButton(
                 onPressed: () async {
-                  await context.read<PrayerTimesProvider>().getPrayTimes(
-                        provider.valueCity.id,
-                        DateTime.now().year.toString(),
-                        DateTime.now().month.toString(),
-                        DateTime.now().day.toString(),
-                      );
+                  await context.read<PrayerTimesProvider>().getPrayTimes();
                   Navigator.of(context).pushReplacementNamed(
                     '/my-app',
                     arguments: context.read<PrayerTimesProvider>().prayTimes,
