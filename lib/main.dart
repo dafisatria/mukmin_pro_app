@@ -6,6 +6,7 @@ import 'package:mukmin_pro_app/view/screen/login_screen.dart';
 import 'package:mukmin_pro_app/view/screen/prayer_times_screen.dart';
 import 'package:provider/provider.dart';
 
+import 'testing_screen.dart';
 import 'view/screen/home_view_model.dart';
 import 'view/screen/login_view_model.dart';
 import 'view/screen/prayer_times_view_model.dart';
@@ -22,21 +23,22 @@ class MukminProApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => LoginProvider(),
+          create: (_) => LoginProvider(),
         ),
         ChangeNotifierProvider(
           create: (_) => HomeProvider(),
         ),
         ChangeNotifierProvider(
-          create: (context) => PrayerTimesProvider(),
+          create: (_) => PrayerTimesProvider(),
         ),
       ],
       child: MaterialApp(
         routes: {
-          '/': (_) => const LoginScreen(),
-          '/my-app': (_) => const MyApp(),
-          '/home': (_) => const HomeScreen(),
-          '/prayer-times': (_) => const PrayTimesScreen(),
+          '/': (_) => const TestingScreen(),
+          // '/': (_) => const LoginScreen(),
+          // '/my-app': (_) => const MyApp(),
+          // '/home': (_) => const HomeScreen(),
+          // '/prayer-times': (_) => const PrayTimesScreen(),
         },
       ),
     );

@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class PrayTimesModel {
   bool? status;
   Data? data;
@@ -78,17 +80,19 @@ class Koordinat {
   }
 }
 
+final DateFormat format = DateFormat("hh:mm:ss a");
+
 class Jadwal {
   String? tanggal;
-  String? imsak;
-  String? subuh;
-  String? terbit;
-  String? dhuha;
-  String? dzuhur;
-  String? ashar;
-  String? maghrib;
-  String? isya;
-  String? date;
+  DateTime? imsak;
+  DateTime? subuh;
+  DateTime? terbit;
+  DateTime? dhuha;
+  DateTime? dzuhur;
+  DateTime? ashar;
+  DateTime? maghrib;
+  DateTime? isya;
+  DateTime? date;
 
   Jadwal(
       {this.tanggal,
@@ -102,17 +106,17 @@ class Jadwal {
       this.isya,
       this.date});
 
-  Jadwal.fromJson(Map<String, dynamic> json) {
+  Jadwal.fromJson(Map<DateTime, dynamic> json) {
     tanggal = json['tanggal'];
-    imsak = json['imsak'];
-    subuh = json['subuh'];
-    terbit = json['terbit'];
-    dhuha = json['dhuha'];
-    dzuhur = json['dzuhur'];
-    ashar = json['ashar'];
-    maghrib = json['maghrib'];
-    isya = json['isya'];
-    date = json['date'];
+    imsak = format.parse(json['imsak']);
+    subuh = format.parse(json['subuh']);
+    terbit = format.parse(json['terbit']);
+    dhuha = format.parse(json['dhuha']);
+    dzuhur = format.parse(json['dzuhur']);
+    ashar = format.parse(json['ashar']);
+    maghrib = format.parse(json['maghrib']);
+    isya = format.parse(json['tanggal']);
+    date = format.parse(json['date']);
   }
 
   Map<String, dynamic> toJson() {

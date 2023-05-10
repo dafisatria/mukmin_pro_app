@@ -28,13 +28,13 @@ class PrayTimesScreen extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            Text(
-              'Wilayah ${context.read<PrayerTimesProvider>().prayTimes.data!.lokasi.toString()}, Indonesia',
-              style: GoogleFonts.notoSans(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
+            // Text(
+            //   'Wilayah ${context.read<PrayerTimesProvider>().prayTimes.data!.lokasi.toString()}, Indonesia',
+            //   style: GoogleFonts.notoSans(
+            //     fontSize: 14,
+            //     fontWeight: FontWeight.w400,
+            //   ),
+            // ),
             SizedBox(
               height: 50,
             ),
